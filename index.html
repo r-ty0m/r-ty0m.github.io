@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>NO PUEDO MÁS 1</title>
+	<title>NO PUEDO MÁS</title>
 	<style>
 		body {
 			margin: 0;
@@ -17,9 +17,11 @@
 	</style>
 </head>
 <body>
-	<img src="images/imagen ({randomNumber}).jpeg" onerror="this.onerror=null; this.src='images/imagen (1).jpeg';" alt="Random Image">
+	<img src="" onerror="this.onerror=null; this.src='images/imagen (1).jpeg';" alt="Random Image">
 	<script>
 		var randomNumber = Math.floor(Math.random() * 48) + 1;
+		var imageSource = "images/imagen (" + randomNumber + ").jpeg";
+		document.querySelector("img").setAttribute("src", imageSource);
 	</script>
 </body>
 </html>
