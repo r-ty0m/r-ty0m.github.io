@@ -4,55 +4,22 @@
 	<title>NO PUEDO MÁS</title>
 	<style>
 		body {
-			background-color: black;
 			margin: 0;
 			padding: 0;
-			height: 100vh;
-			width: 100%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
+			background-color: black;
 		}
 		img {
-			object-fit: cover;
-			width: 100%;
-			height: 100%;
+			display: block;
+			margin: 0 auto;
+			max-width: 100%;
+			max-height: 100%;
 		}
 	</style>
 </head>
 <body>
-	<img src="" alt="Random Image">
+	<img src="images/imagen{{randomNumber}}.jpeg" onerror="this.onerror=null; this.src='images/imagen1.jpeg';" alt="Random Image">
 	<script>
-		function getRandomInt(max) {
-			return Math.floor(Math.random() * max);
-		}
-
-		var images = [];
-		var imageElements = document.querySelectorAll('img');
-		var imagesPath = "/images/";
-
-		fetch(imagesPath)
-			.then(response => response.text())
-			.then(html => {
-				const parser = new DOMParser();
-				const doc = parser.parseFromString(html, "text/html");
-				const links = doc.querySelectorAll("a");
-
-				for (const link of links) {
-					const href = link.getAttribute("href");
-					if (href.endsWith(".jpg") || href.endsWith(".png") || href.endsWith(".jpeg") || href.endsWith(".gif")) {
-						images.push(imagesPath + href);
-					}
-				}
-
-				var randomIndex = getRandomInt(images.length);
-				var randomImage = images[randomIndex];
-
-				imageElements.forEach(img => {
-					img.setAttribute('src', randomImage);
-				});
-			})
-			.catch(error => console.error(error));
+		var randomNumber = Math.floor(Math.random() * 48) + 1;
 	</script>
 </body>
 </html>
