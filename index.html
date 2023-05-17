@@ -18,11 +18,23 @@
 	</style>
 </head>
 <body>
-	<img src="" onerror="this.onerror=null; this.src='images/imagen (3).jpg';" alt="Random Image">
+	<img src="" onerror="loadImage();" alt="Random Image">
 	<script>
 		var randomNumber = Math.floor(Math.random() * 233) + 1;
 		var imageSource = "images/imagen (" + randomNumber + ").jpg";
-		document.querySelector("img").setAttribute("src", imageSource);
+		var image = document.querySelector("img");
+
+		function loadImage() {
+			if (image.src.indexOf(".jpg") > -1) {
+				image.src = imageSource.replace(".jpg", ".png");
+			} else if (image.src.indexOf(".png") > -1) {
+				image.src = imageSource.replace(".png", ".jpeg");
+			} else {
+				image.src = "images/imagen (3).jpg";
+			}
+		}
+
+		image.setAttribute("src", imageSource);
 	</script>
 </body>
 </html>
