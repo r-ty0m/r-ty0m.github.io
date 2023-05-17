@@ -20,7 +20,7 @@
 <body>
 	<img src="" onerror="loadImage();" alt="Random Image">
 	<script>
-		var randomNumber = Math.floor(Math.random() * 233) + 1;
+		var randomNumber = Math.floor(Math.random() * 242) + 1;
 		var imageSource = "images/imagen (" + randomNumber + ").jpg";
 		var image = document.querySelector("img");
 
@@ -30,7 +30,7 @@
 			} else if (image.src.indexOf(".png") > -1) {
 				image.src = imageSource.replace(".png", ".jpeg");
 			} else {
-				image.src = "images/imagen (3).jpg";
+				image.src = "images/imagen (9).jpg";
 			}
 		}
 
